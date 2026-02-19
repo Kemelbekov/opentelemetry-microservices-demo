@@ -56,10 +56,10 @@ data:
                 enabled: true
     exporters:
       otlphttp/elastic:
-        endpoint: http://eck-stack-with-apm-eck-apm-server-apm-http.elastic-stack.svc:8200
+        endpoint: https://eck-stack-with-apm-eck-apm-server-apm-http.elastic-stack.svc:8200
         compression: none
         headers:
-          Authorization: "Bearer aVBJYldNV21ZUnJmMk1VdUZLbWNvTTlx"
+          Authorization: "Bearer iPIbWMWmYRrf2MUuFKmcoM9q"
         tls:
           insecure: true
       logging:
