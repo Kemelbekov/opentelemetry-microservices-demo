@@ -1,0 +1,22 @@
+// Тут два разных сценария — и в твоей инструкции речь про Elastic Cloud, где endpoint уже готовый. 
+// Поэтому “поднять свой” нужно только если ты не в Elastic Cloud, а разворачиваешь Elastic APM Server у себя (например, в k8s).
+
+helm repo add elastic https://helm.elastic.co
+helm repo update
+
+helm install elastic-operator elastic/eck-operator \
+  -n elastic-system --create-namespace
+
+helm install eck-stack-with-apm elastic/eck-stack \
+  -n elastic-stack --create-namespace \
+  --values https://raw.githubusercontent.com/elastic/cloud-on-k8s/3.3/deploy/eck-stack/examples/apm-server/basic.yaml
+
+// kubectl get svc -n elastic-stack | grep -i apm
+// подставляем в OtleCollector 
+
+exporters:
+  otlp/elastic:
+    endpoint: "http://eck-stack-with-apm-eck-apm-server-apm-http.elastic-stack.svc:8200"
+
+  // pods(push) -> Otel Collector -> APM -> ElasticDB -> Kibana
+  // 
