@@ -56,10 +56,12 @@ data:
                 enabled: true
     exporters:
       otlphttp/elastic:
-        endpoint: OTEL_EXPORTER_OTLP_ENDPOINT
+        endpoint: http://eck-stack-with-apm-eck-apm-server-apm-http.elastic-stack.svc:8200
         compression: none
         headers:
-          Authorization: OTEL_EXPORTER_OTLP_HEADERS
+          Authorization: "Bearer aVBJYldNV21ZUnJmMk1VdUZLbWNvTTlx"
+        tls:
+          insecure: true
       logging:
         loglevel: warn
     service:
