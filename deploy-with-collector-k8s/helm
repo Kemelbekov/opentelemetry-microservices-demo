@@ -19,4 +19,6 @@ exporters:
     endpoint: "http://eck-stack-with-apm-eck-apm-server-apm-http.elastic-stack.svc:8200"
 
   // pods(push) -> Otel Collector -> APM -> ElasticDB -> Kibana
-  // 
+
+kubectl get secret -n elastic-stack eck-stack-with-apm-eck-apm-server-apm-token -o jsonpath='{.data}' ; echo
+
