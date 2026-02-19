@@ -56,10 +56,10 @@ data:
                 enabled: true
     exporters:
       otlphttp/elastic:
-        endpoint: https://eck-stack-with-apm-eck-apm-server-apm-http.elastic-stack.svc:8200
+        endpoint: https://test-5979ed.ingest.us-central1.gcp.elastic-cloud.com:443
         compression: none
         headers:
-          Authorization: "Bearer iPIbWMWmYRrf2MUuFKmcoM9q"
+          Authorization: "ApiKey ODdIWGRad0JvNGNoU2EtbGZZWFM6YUl3MmZvbHpXQlNZWkxEb2lNZDRfQQ=="
         tls:
           insecure: true
       logging:
